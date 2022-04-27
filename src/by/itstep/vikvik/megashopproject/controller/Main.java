@@ -14,7 +14,7 @@ public class Main {
 
 
         Basket basket = new Basket(null, null);
-        basket.add((Milk)null);
+        basket.add(milk1);
         basket.add(milk2);
         basket.add(milk3);
         basket.add(milk4);
