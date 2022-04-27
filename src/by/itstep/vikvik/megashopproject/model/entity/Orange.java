@@ -3,7 +3,7 @@ package by.itstep.vikvik.megashopproject.model.entity;
 public class Orange {
     private int diameter;
     private int vitaminC;
-    private double cost;
+    private double price;
 
     public Orange(){
 
@@ -12,7 +12,7 @@ public class Orange {
     public Orange(int diameter, int vitaminC, double cost) {
         this.diameter = diameter;
         this.vitaminC = vitaminC;
-        this.cost = cost;
+        this.price = cost;
     }
 
     public int getDiameter() {
@@ -31,12 +31,12 @@ public class Orange {
         this.vitaminC = vitaminC;
     }
 
-    public double getCost() {
-        return cost;
+    public double getPrice() {
+        return price;
     }
 
-    public void setCost(double cost) {
-        this.cost = cost;
+    public void setPrice(double cost) {
+        this.price = cost;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class Orange {
         return "Orange { " +
                 "diameter = " + diameter +
                 ", vitaminC = " + vitaminC +
-                ", cost = " + cost +
+                ", cost = " + price +
                 " }";
     }
 }

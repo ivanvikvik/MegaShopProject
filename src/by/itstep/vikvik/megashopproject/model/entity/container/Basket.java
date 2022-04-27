@@ -1,5 +1,6 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
+import by.itstep.vikvik.megashopproject.model.entity.Bread;
 import by.itstep.vikvik.megashopproject.model.entity.Milk;
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
 
@@ -8,13 +9,15 @@ import java.util.Arrays;
 public class Basket {
     private Orange[] oranges;
     private Milk[] milks;
+    private Bread[] breads;
 
     public Basket(){
         oranges = new Orange[0];
         milks = new Milk[0];
+        breads = new Bread[0];
     }
 
-    public Basket(Orange[] oranges, Milk[] milks){
+    public Basket(Orange[] oranges, Milk[] milks, Bread[] breads){
         this();
 
         if (oranges != null) {
@@ -24,10 +27,18 @@ public class Basket {
         if (milks != null) {
            this.milks = milks;
         }
+
+        if (breads != null) {
+            this.breads = breads;
+        }
     }
 
     public int getOrangesCount(){
         return oranges.length;
+    }
+
+    public int getBreadsCount(){
+        return breads.length;
     }
 
     public int getMilksCount(){
@@ -44,6 +55,11 @@ public class Basket {
         return milks[index];
     }
 
+    //!!!
+    public Bread getBread(int index){
+        return breads[index];
+    }
+
     public void add(Orange orange){
         if (orange == null) {
             return;
@@ -58,6 +74,22 @@ public class Basket {
 
         temp[i] = orange;
         oranges = temp;
+    }
+
+    public void add(Bread bread){
+        if (bread == null) {
+            return;
+        }
+
+        Bread[] temp = new Bread[breads.length + 1];
+
+        int i = 0;
+        for (; i < breads.length; i++) {
+            temp[i] = breads[i];
+        }
+
+        temp[i] = bread;
+        breads = temp;
     }
 
     //!!!
