@@ -26,6 +26,24 @@ public class Basket {
         }
     }
 
+    public int getOrangesCount(){
+        return oranges.length;
+    }
+
+    public int getMilksCount(){
+        return milks.length;
+    }
+
+    //!!!
+    public Orange getOrange(int index){
+        return oranges[index];
+    }
+
+    //!!!
+    public Milk getMilk(int index){
+        return milks[index];
+    }
+
     public void add(Orange orange){
         if (orange == null) {
             return;
@@ -42,6 +60,7 @@ public class Basket {
         oranges = temp;
     }
 
+    //!!!
     public void removeOrange(int index){
         Orange[] temp = new Orange[oranges.length - 1];
 
@@ -71,6 +90,7 @@ public class Basket {
         milks = temp;
     }
 
+    //!!!
     public void removeMilk(int index){
         Milk[] temp = new Milk[milks.length - 1];
 
