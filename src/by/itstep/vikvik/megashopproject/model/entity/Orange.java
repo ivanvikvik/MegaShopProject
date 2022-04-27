@@ -38,4 +38,13 @@ public class Orange {
     public void setCost(double cost) {
         this.cost = cost;
     }
+
+    @Override
+    public String toString() {
+        return "Orange { " +
+                "diameter = " + diameter +
+                ", vitaminC = " + vitaminC +
+                ", cost = " + cost +
+                " }";
+    }
 }
