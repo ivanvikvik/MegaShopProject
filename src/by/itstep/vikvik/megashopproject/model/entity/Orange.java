@@ -1,18 +1,19 @@
 package by.itstep.vikvik.megashopproject.model.entity;
 
-public class Orange {
+import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+
+public class Orange extends Product {
     private int diameter;
     private int vitaminC;
-    private double price;
 
     public Orange(){
 
     }
 
-    public Orange(int diameter, int vitaminC, double cost) {
+    public Orange(int diameter, int vitaminC, double price) {
+        super(price);
         this.diameter = diameter;
         this.vitaminC = vitaminC;
-        this.price = cost;
     }
 
     public int getDiameter() {
@@ -31,20 +32,11 @@ public class Orange {
         this.vitaminC = vitaminC;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double cost) {
-        this.price = cost;
-    }
-
     @Override
     public String toString() {
         return "Orange { " +
                 "diameter = " + diameter +
                 ", vitaminC = " + vitaminC +
-                ", cost = " + price +
-                " }";
+                ", " + super.toString() + " }";
     }
 }

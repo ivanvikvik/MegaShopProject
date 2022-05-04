@@ -1,160 +1,74 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
-import by.itstep.vikvik.megashopproject.model.entity.Bread;
-import by.itstep.vikvik.megashopproject.model.entity.Milk;
-import by.itstep.vikvik.megashopproject.model.entity.Orange;
-
-import java.util.Arrays;
+import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 
 public class Basket {
-    private Orange[] oranges;
-    private Milk[] milks;
-    private Bread[] breads;
+    private Product[] products;
 
     public Basket(){
-        oranges = new Orange[0];
-        milks = new Milk[0];
-        breads = new Bread[0];
+        products = new Product[0];
     }
 
-    public Basket(Orange[] oranges, Milk[] milks, Bread[] breads){
+    public Basket(Product[] products){
         this();
 
-        if (oranges != null) {
-            this.oranges = oranges;
-        }
-
-        if (milks != null) {
-           this.milks = milks;
-        }
-
-        if (breads != null) {
-            this.breads = breads;
+        if (products != null) {
+            this.products = products;
         }
     }
 
-    public int getOrangesCount(){
-        return oranges.length;
-    }
-
-    public int getBreadsCount(){
-        return breads.length;
-    }
-
-    public int getMilksCount(){
-        return milks.length;
+    public int getProductCount(){
+        return products.length;
     }
 
     //!!!
-    public Orange getOrange(int index){
-        return oranges[index];
+    public Product getProduct(int index){
+        return products[index];
     }
 
-    //!!!
-    public Milk getMilk(int index){
-        return milks[index];
-    }
-
-    //!!!
-    public Bread getBread(int index){
-        return breads[index];
-    }
-
-    public void add(Orange orange){
-        if (orange == null) {
+    public void add(Product product){
+        if (product == null) {
             return;
         }
 
-        Orange[] temp = new Orange[oranges.length + 1];
+        Product[] temp = new Product[products.length + 1];
 
         int i = 0;
-        for (; i < oranges.length; i++) {
-            temp[i] = oranges[i];
+        for (; i < products.length; i++) {
+            temp[i] = products[i];
         }
 
-        temp[i] = orange;
-        oranges = temp;
-    }
-
-    public void add(Bread bread){
-        if (bread == null) {
-            return;
-        }
-
-        Bread[] temp = new Bread[breads.length + 1];
-
-        int i = 0;
-        for (; i < breads.length; i++) {
-            temp[i] = breads[i];
-        }
-
-        temp[i] = bread;
-        breads = temp;
+        temp[i] = product;
+        products = temp;
     }
 
     //!!!
-    public void removeOrange(int index){
-        Orange[] temp = new Orange[oranges.length - 1];
+    public void remove(int index){
+        Product[] temp = new Product[products.length - 1];
 
-        for (int i = 0, j = 0; i < oranges.length; i++) {
+        for (int i = 0, j = 0; i < products.length; i++) {
             if (i != index) {
-                temp[j] = oranges[i];
+                temp[j] = products[i];
                 j++;
             }
         }
 
-        oranges = temp;
-    }
-
-    public void add(Milk milk){
-        if (milk == null) {
-            return;
-        }
-
-        Milk[] temp = new Milk[milks.length + 1];
-
-        int i = 0;
-        for (; i < milks.length; i++) {
-            temp[i] = milks[i];
-        }
-
-        temp[i] = milk;
-        milks = temp;
-    }
-
-    //!!!
-    public void removeMilk(int index){
-        Milk[] temp = new Milk[milks.length - 1];
-
-        for (int i = 0, j = 0; i < milks.length; i++) {
-            if (i != index) {
-                temp[j] = milks[i];
-                j++;
-            }
-        }
-
-        milks = temp;
+        products = temp;
     }
 
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        if (oranges == null || milks == null
-                || (milks.length == 0 && oranges.length == 0)) {
+        if (products.length == 0) {
             builder.append("Basket is empty.");
         } else {
             builder.append("Basket:");
 
-            for (Orange orange: oranges) {
-                builder.append("\n").append(orange);
-            }
-
-            for (Milk milk: milks) {
-                builder.append("\n").append(milk);
+            for (Product product: products) {
+                builder.append("\n").append(product);
             }
         }
-
 
         return builder.toString();
     }
