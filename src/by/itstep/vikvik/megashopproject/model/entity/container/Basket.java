@@ -26,6 +26,10 @@ public class Basket {
         return products[index];
     }
 
+    public void setProduct(int index, Product product){
+        products[index] = product;
+    }
+
     public void add(Product product){
         if (product == null) {
             return;

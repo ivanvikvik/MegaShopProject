@@ -2,6 +2,7 @@ package by.itstep.vikvik.megashopproject.model.entity.abstracts;
 
 public class Product {
     private double price;
+    private double calory;
 
     public Product() {
     }
