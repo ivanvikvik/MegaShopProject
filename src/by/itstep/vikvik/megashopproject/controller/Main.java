@@ -6,6 +6,8 @@ import by.itstep.vikvik.megashopproject.model.entity.Orange;
 import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
 import by.itstep.vikvik.megashopproject.model.logic.BasketSorter;
 import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
+import by.itstep.vikvik.megashopproject.model.logic.sortstrategy.SortByPriceAsc;
+import by.itstep.vikvik.megashopproject.model.logic.sortstrategy.SortByPriceDesc;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,11 +32,11 @@ public class Main {
         basket.add(orange3);
         basket.add(orange4);
 
-        BasketSorter.sortByPriceAsc(basket);
+        BasketSorter.sort(basket, new SortByPriceAsc());
         System.out.println(basket);
 
         System.out.println();
-        BasketSorter.sortByPriceDesc(basket);
+        BasketSorter.sort(basket, new SortByPriceDesc());
         System.out.println(basket);
 
         double total = ShopAssistance.calculateTotalPrice(basket);
