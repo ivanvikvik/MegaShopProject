@@ -50,8 +50,8 @@ public class StaticBasket {
     }
 
     public boolean remove(int index) {
-        if (index >= capacity() || index < 0) {
-            System.out.println("Написать исключение!!!");
+        if (index >= size || index < 0) {
+            System.out.println("Написать исключение для выхода за пределы или попытки удаления уже и так пустого элемента");
             return false;
         }
 
@@ -69,7 +69,7 @@ public class StaticBasket {
 
     public Product getProduct(int index) {
 //        Сделать защиту!!!
-        return products[index - 1];
+        return products[index];
     }
 
     public void setProduct(int index, Product product) {
@@ -81,15 +81,13 @@ public class StaticBasket {
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        if (capacity() == 0) {
+        if (size == 0) {
             builder.append("Basket is empty.");
         } else {
             builder.append("Basket:");
 
-            for (Product product : products) {
-                if (product != null) {
-                    builder.append("\n").append(product);
-                }
+            for (int i = 0; i < size; i++) {
+                builder.append("\n").append(products[i]);
             }
         }
 
