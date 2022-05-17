@@ -1,8 +1,9 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
+import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.CountableBasket;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 
-public class ListBasket {
+public class ListBasket implements CountableBasket {
     private Node first;
     private int size;
 
@@ -53,6 +54,11 @@ public class ListBasket {
         }
         size--;
         return true;
+    }
+
+    @Override
+    public int getProductCount() {
+        return size;
     }
 
     public Product getProduct(int index) {

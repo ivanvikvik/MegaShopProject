@@ -1,11 +1,11 @@
 package by.itstep.vikvik.megashopproject.model.logic;
 
-import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
+import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.CountableBasket;
 
 public class ShopAssistance {
     private ShopAssistance(){ }
 
-    public static double calculateTotalPrice(DynamicBasket basket) {
+    public static double calculateTotalPrice(CountableBasket basket) {
         double total = 0;
 
         for (int i = 0; i < basket.getProductCount(); i++) {

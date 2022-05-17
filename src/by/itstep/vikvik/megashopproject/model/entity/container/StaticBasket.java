@@ -1,8 +1,10 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
+import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.CountableBasket;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.SortableBasket;
 
-public class StaticBasket {
+public class StaticBasket implements CountableBasket, SortableBasket {
     private Product[] products;
     private int size;
     private static final int ARRAY_SIZE = 10;
@@ -65,6 +67,11 @@ public class StaticBasket {
         }
         size--;
         return true;
+    }
+
+    @Override
+    public int getProductCount() {
+        return size;
     }
 
     public Product getProduct(int index) {
