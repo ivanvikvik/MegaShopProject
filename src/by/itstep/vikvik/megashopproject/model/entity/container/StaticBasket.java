@@ -12,6 +12,11 @@ public class StaticBasket {
         size = 0;
     }
 
+    public StaticBasket(int capacity) {
+        products = new Product[capacity];
+        size = 0;
+    }
+
     public StaticBasket(Product[] products) {
         this.products = products;
         size = 0;  // на всякий случай
@@ -45,7 +50,7 @@ public class StaticBasket {
     }
 
     public boolean remove(int index) {
-        if (index > capacity() || index <= 0) {
+        if (index >= capacity() || index < 0) {
             System.out.println("Написать исключение!!!");
             return false;
         }
@@ -53,13 +58,23 @@ public class StaticBasket {
         if (index == size - 1) {
             products[index] = null;
         } else {
-            for (int i = index - 1; i < size - 1; i++) {
+            for (int i = index; i < size - 1; i++) {
                 products[i] = products[i + 1];
             }
             products[size - 1] = null;
         }
         size--;
         return true;
+    }
+
+    public Product getProduct(int index) {
+//        Сделать защиту!!!
+        return products[index - 1];
+    }
+
+    public void setProduct(int index, Product product) {
+//        !!!
+        products[index] = product;
     }
 
     @Override
