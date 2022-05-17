@@ -55,30 +55,58 @@ public class ListBasket {
         return true;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-
-        if (isEmpty()) {
-            builder.append("Basket is empty.");
+    public Product getProduct(int index) {
+        if (index > size - 1 || index < 0) {
+            System.out.println("get product wrong index");
+            return null;
         } else {
-            builder.append("Basket:");
             Node temp = first;
-            while (temp.next != null) {
-                builder.append("\n").append(temp.product);
+            for (int i = 0; i < index; i++) {
                 temp = temp.next;
             }
-            builder.append("\n").append(temp.product);
-        }
-        return builder.toString();
-    }
-
-    private class Node {
-        public Product product;
-        public Node next;
-
-        public Node(Product product) {
-            this.product = product;
+            return temp.product;
         }
     }
-}
+
+    public void setProduct(int index, Product product) {
+        if (index > size - 1 || index < 0) {
+            System.out.println("set product wrong index");
+            return;
+        } else if (index == 0) {
+              first.product = product;
+        } else {
+            Node temp = first;
+            for (int i = 0; i < index ; i++) {
+                temp = temp.next;
+            }
+            temp.product = product;
+        }
+    }
+
+        @Override
+        public String toString () {
+            StringBuilder builder = new StringBuilder();
+
+            if (isEmpty()) {
+                builder.append("Basket is empty.");
+            } else {
+                builder.append("Basket:");
+                Node temp = first;
+                while (temp.next != null) {
+                    builder.append("\n").append(temp.product);
+                    temp = temp.next;
+                }
+                builder.append("\n").append(temp.product);
+            }
+            return builder.toString();
+        }
+
+        private class Node {
+            public Product product;
+            public Node next;
+
+            public Node(Product product) {
+                this.product = product;
+            }
+        }
+    }
