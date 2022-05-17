@@ -1,15 +1,17 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
+import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.CountableBasket;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.SortableBasket;
 
-public class Basket {
+public class DynamicBasket implements CountableBasket, SortableBasket {
     private Product[] products;
 
-    public Basket(){
+    public DynamicBasket(){
         products = new Product[0];
     }
 
-    public Basket(Product[] products){
+    public DynamicBasket(Product[] products){
         this();
 
         if (products != null) {
@@ -22,6 +24,7 @@ public class Basket {
     }
 
     //!!!
+    @Override
     public Product getProduct(int index){
         return products[index];
     }
