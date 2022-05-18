@@ -3,7 +3,9 @@ package by.itstep.vikvik.megashopproject.controller;
 import by.itstep.vikvik.megashopproject.model.entity.Bread;
 import by.itstep.vikvik.megashopproject.model.entity.Milk;
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
-import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
+import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
+import by.itstep.vikvik.megashopproject.model.entity.container.ListBasket;
+import by.itstep.vikvik.megashopproject.model.entity.container.StaticBasket;
 import by.itstep.vikvik.megashopproject.model.logic.BasketSorter;
 import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
 import by.itstep.vikvik.megashopproject.model.logic.sortstrategy.SortByPriceAsc;
@@ -21,24 +23,28 @@ public class Main {
         Milk milk4 = new Milk(1500, 1.0, 3.5);
         Bread bread = new Bread("White", "Best", 2.5);
 
-        Basket basket = new Basket();
+        DynamicBasket basket = new DynamicBasket();
         basket.add(bread);
         basket.add(milk1);
         basket.add(milk2);
         basket.add(milk3);
         basket.add(milk4);
-        basket.add(orange1);
-        basket.add(orange2);
-        basket.add(orange3);
-        basket.add(orange4);
+//        basket.add(orange1);
+//        basket.add(orange2);
+//        basket.add(orange3);
+//        basket.add(orange4);
 
-        BasketSorter.sort(basket, new SortByPriceAsc());
-        System.out.println(basket);
+//        for (int i = 0; i < basket.size(); i++) {
+//            System.out.println(basket.get(i));
+//        }
 
-        System.out.println();
-        BasketSorter.sort(basket, new SortByPriceDesc());
-        System.out.println(basket);
-
+//        BasketSorter.sort(basket, new SortByPriceAsc());
+//        System.out.println(basket);
+//
+//        System.out.println();
+//        BasketSorter.sort(basket, new SortByPriceDesc());
+//        System.out.println(basket);
+//
         double total = ShopAssistance.calculateTotalPrice(basket);
         System.out.println("Total price: " + total);
     }

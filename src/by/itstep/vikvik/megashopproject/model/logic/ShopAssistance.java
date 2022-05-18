@@ -8,8 +8,8 @@ public class ShopAssistance {
     public static double calculateTotalPrice(Basket basket) {
         double total = 0;
 
-        for (int i = 0; i < basket.getProductCount(); i++) {
-            total += basket.getProduct(i).getPrice();
+        for (int i = 0; i < basket.size(); i++) {
+            total += basket.get(i).getPrice();
         }
 
         return total;

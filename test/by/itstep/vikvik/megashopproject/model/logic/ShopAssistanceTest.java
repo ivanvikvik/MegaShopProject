@@ -3,7 +3,7 @@ package by.itstep.vikvik.megashopproject.model.logic;
 import by.itstep.vikvik.megashopproject.model.entity.Bread;
 import by.itstep.vikvik.megashopproject.model.entity.Milk;
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
-import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
+import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,7 +17,7 @@ public class ShopAssistanceTest {
         Milk milk4 = new Milk(1000, 3.5, 2.5);
         Bread bread = new Bread("white", "best", 1.5);
 
-        Basket basket = new Basket();
+        DynamicBasket basket = new DynamicBasket();
         basket.add(milk1);
         basket.add(milk2);
         basket.add(milk3);
