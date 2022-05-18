@@ -1,8 +1,12 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.DynamicBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.FixedBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.Iterable;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.MyIterator;
 
-public class FixedBasket implements Basket {
+public class FixedBasket implements Basket, Iterable {
     public static final int DEFAULT_SIZE = 10;
 
     private Product[] array;
@@ -86,5 +90,10 @@ public class FixedBasket implements Basket {
         }
 
         return builder.toString();
+    }
+
+    @Override
+    public MyIterator getIterator() {
+        return new FixedBasketIterator(this);
     }
 }

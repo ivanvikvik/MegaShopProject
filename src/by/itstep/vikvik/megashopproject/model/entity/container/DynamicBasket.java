@@ -1,10 +1,13 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.DynamicBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.Iterable;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.MyIterator;
 
 import java.io.Serializable;
 
-public class DynamicBasket implements Basket {
+public class DynamicBasket implements Basket, Iterable {
 
     private Product[] products;
 
@@ -78,5 +81,10 @@ public class DynamicBasket implements Basket {
         }
 
         return builder.toString();
+    }
+
+    @Override
+    public MyIterator getIterator() {
+        return new DynamicBasketIterator(this);
     }
 }
