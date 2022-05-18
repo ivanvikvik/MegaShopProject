@@ -2,23 +2,23 @@ package by.itstep.vikvik.megashopproject.model.entity.container;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 
-public class StaticBasket implements Basket {
+public class FixedBasket implements Basket {
     public static final int DEFAULT_SIZE = 10;
 
     private Product[] array;
     private int size;
 
-    public StaticBasket() {
+    public FixedBasket() {
         array = new Product[DEFAULT_SIZE];
         size = 0;
     }
 
-    public StaticBasket(int capacity){
+    public FixedBasket(int capacity){
         array = new Product[capacity];
         size = 0;
     }
 
-    public StaticBasket(Product[] array){
+    public FixedBasket(Product[] array){
         this.array = array;
         size = array.length;
     }

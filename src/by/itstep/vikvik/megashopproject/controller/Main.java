@@ -3,13 +3,14 @@ package by.itstep.vikvik.megashopproject.controller;
 import by.itstep.vikvik.megashopproject.model.entity.Bread;
 import by.itstep.vikvik.megashopproject.model.entity.Milk;
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
+import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
-import by.itstep.vikvik.megashopproject.model.entity.container.ListBasket;
-import by.itstep.vikvik.megashopproject.model.entity.container.StaticBasket;
-import by.itstep.vikvik.megashopproject.model.logic.BasketSorter;
+import by.itstep.vikvik.megashopproject.model.entity.container.FixedBasket;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.ArrayIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.DynamicBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.FixedBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.MyIterator;
 import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
-import by.itstep.vikvik.megashopproject.model.logic.sortstrategy.SortByPriceAsc;
-import by.itstep.vikvik.megashopproject.model.logic.sortstrategy.SortByPriceDesc;
 
 public class Main {
     public static void main(String[] args) {
@@ -29,6 +30,22 @@ public class Main {
         basket.add(milk2);
         basket.add(milk3);
         basket.add(milk4);
+
+        Product[] products = new Product[]{milk1, bread, orange1};
+
+        MyIterator iterator = new ArrayIterator(products);
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+        iterator.reset();
+
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
+
 //        basket.add(orange1);
 //        basket.add(orange2);
 //        basket.add(orange3);
@@ -45,7 +62,8 @@ public class Main {
 //        BasketSorter.sort(basket, new SortByPriceDesc());
 //        System.out.println(basket);
 //
-        double total = ShopAssistance.calculateTotalPrice(basket);
+        iterator.reset();
+        double total = ShopAssistance.calculateTotalPrice(iterator);
         System.out.println("Total price: " + total);
     }
 }
