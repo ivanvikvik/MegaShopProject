@@ -1,25 +1,23 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
-import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.CountableBasket;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
-import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.SortableBasket;
 
-public class StaticBasket implements CountableBasket, SortableBasket {
+public class FixedBasket implements Basket {
     private Product[] products;
     private int size;
     private static final int ARRAY_SIZE = 10;
 
-    public StaticBasket() {
+    public FixedBasket() {
         products = new Product[ARRAY_SIZE];
         size = 0;
     }
 
-    public StaticBasket(int capacity) {
+    public FixedBasket(int capacity) {
         products = new Product[capacity];
         size = 0;
     }
 
-    public StaticBasket(Product[] products) {
+    public FixedBasket(Product[] products) {
         this.products = products;
         size = 0;  // на всякий случай
 
@@ -30,10 +28,6 @@ public class StaticBasket implements CountableBasket, SortableBasket {
                 size++;
             }
         }
-    }
-
-    public int size() {
-        return size;
     }
 
     public int capacity() {
@@ -70,11 +64,11 @@ public class StaticBasket implements CountableBasket, SortableBasket {
     }
 
     @Override
-    public int getProductCount() {
+    public int size() {
         return size;
     }
 
-    public Product getProduct(int index) {
+    public Product get(int index) {
 //        Сделать защиту!!!
         return products[index];
     }
@@ -91,7 +85,7 @@ public class StaticBasket implements CountableBasket, SortableBasket {
         if (size == 0) {
             builder.append("Basket is empty.");
         } else {
-            builder.append("Basket:");
+            builder.append("FixedBasket:");
 
             for (int i = 0; i < size; i++) {
                 builder.append("\n").append(products[i]);

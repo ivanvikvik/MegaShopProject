@@ -1,19 +1,14 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
-import by.itstep.vikvik.megashopproject.model.entity.container.interfaces.CountableBasket;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 
-public class ListBasket implements CountableBasket {
+public class ListBasket implements Basket {
     private Node first;
     private int size;
 
     public ListBasket() {
         first = null;
         size = 0;
-    }
-
-    public int size() {
-        return size;
     }
 
     public boolean isEmpty() {
@@ -57,12 +52,13 @@ public class ListBasket implements CountableBasket {
     }
 
     @Override
-    public int getProductCount() {
+    public int size() {
         return size;
     }
 
-    public Product getProduct(int index) {
-        if (index > size - 1 || index < 0) {
+    @Override
+    public Product get(int index) {
+        if (isEmpty() || index >= size || index < 0) {
             System.out.println("get product wrong index");
             return null;
         } else {
@@ -79,40 +75,40 @@ public class ListBasket implements CountableBasket {
             System.out.println("set product wrong index");
             return;
         } else if (index == 0) {
-              first.product = product;
+            first.product = product;
         } else {
             Node temp = first;
-            for (int i = 0; i < index ; i++) {
+            for (int i = 0; i < index; i++) {
                 temp = temp.next;
             }
             temp.product = product;
         }
     }
 
-        @Override
-        public String toString () {
-            StringBuilder builder = new StringBuilder();
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
 
-            if (isEmpty()) {
-                builder.append("Basket is empty.");
-            } else {
-                builder.append("Basket:");
-                Node temp = first;
-                while (temp.next != null) {
-                    builder.append("\n").append(temp.product);
-                    temp = temp.next;
-                }
+        if (isEmpty()) {
+            builder.append("Basket is empty.");
+        } else {
+            builder.append("ListBasket:");
+            Node temp = first;
+            while (temp.next != null) {
                 builder.append("\n").append(temp.product);
+                temp = temp.next;
             }
-            return builder.toString();
+            builder.append("\n").append(temp.product);
         }
+        return builder.toString();
+    }
 
-        private class Node {
-            public Product product;
-            public Node next;
+    private class Node {
+        public Product product;
+        public Node next;
 
-            public Node(Product product) {
-                this.product = product;
-            }
+        public Node(Product product) {
+            this.product = product;
         }
     }
+}
