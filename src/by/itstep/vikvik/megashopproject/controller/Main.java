@@ -6,6 +6,10 @@ import by.itstep.vikvik.megashopproject.model.entity.Orange;
 import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
 import by.itstep.vikvik.megashopproject.model.entity.container.FixedBasket;
 import by.itstep.vikvik.megashopproject.model.entity.container.ListBasket;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.DynamicBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.FixedBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.ListBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.MyIterator;
 import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
 
 public class Main {
@@ -26,17 +30,39 @@ public class Main {
         basket.add(orange1);
         basket.add(milk3);
 
+        MyIterator iterator = new FixedBasketIterator(basket);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
         DynamicBasket dynamicBasket = new DynamicBasket();
         dynamicBasket.add(bread);
         dynamicBasket.add(milk1);
         dynamicBasket.add(orange1);
         dynamicBasket.add(milk3);
 
+        iterator.reset();
+
+        
+        iterator = new DynamicBasketIterator(dynamicBasket);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
+
         ListBasket listBasket = new ListBasket();
         listBasket.add(bread);
         listBasket.add(milk1);
         listBasket.add(orange1);
         listBasket.add(milk3);
+
+        iterator.reset();
+
+
+
+        iterator = new ListBasketIterator(listBasket);
+        while (iterator.hasNext()) {
+            System.out.println(iterator.next());
+        }
 
 //        BasketSorter.sort(basket, new SortByPriceAsc());
 //        System.out.println(basket);
@@ -45,16 +71,16 @@ public class Main {
 //        BasketSorter.sort(basket, new SortByPriceDesc());
 //        System.out.println(basket);
 
-        System.out.println(basket);
-        double total = ShopAssistance.calculateTotalPrice(basket);
-        System.out.println("Total price: " + total);
-
-        System.out.println(dynamicBasket);
-        total = ShopAssistance.calculateTotalPrice(dynamicBasket);
-        System.out.println("Total price: " + total);
-
-        System.out.println(listBasket);
-        total = ShopAssistance.calculateTotalPrice(listBasket);
-        System.out.println("Total price: " + total);
+//        System.out.println(basket);
+//        double total = ShopAssistance.calculateTotalPrice(basket);
+//        System.out.println("Total price: " + total);
+//
+//        System.out.println(dynamicBasket);
+//        total = ShopAssistance.calculateTotalPrice(dynamicBasket);
+//        System.out.println("Total price: " + total);
+//
+//        System.out.println(listBasket);
+//        total = ShopAssistance.calculateTotalPrice(listBasket);
+//        System.out.println("Total price: " + total);
     }
 }

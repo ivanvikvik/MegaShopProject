@@ -4,6 +4,8 @@ import by.itstep.vikvik.megashopproject.model.entity.Bread;
 import by.itstep.vikvik.megashopproject.model.entity.Milk;
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
 import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.DynamicBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.MyIterator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -25,9 +27,11 @@ public class ShopAssistanceTest {
         basket.add(orange);
         basket.add(bread);
 
+        MyIterator iterator = new DynamicBasketIterator(basket);
+
         double expected = 16;
 
-        double actual = ShopAssistance.calculateTotalPrice(basket);
+        double actual = ShopAssistance.calculateTotalPrice(iterator);
 
         assertEquals(expected, actual, 0.0);
 

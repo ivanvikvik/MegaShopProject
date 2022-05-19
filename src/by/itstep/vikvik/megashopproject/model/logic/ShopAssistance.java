@@ -1,15 +1,16 @@
 package by.itstep.vikvik.megashopproject.model.logic;
 
-import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.MyIterator;
 
 public class ShopAssistance {
-    private ShopAssistance(){ }
+    private ShopAssistance() {
+    }
 
-    public static double calculateTotalPrice(Basket basket) {
+    public static double calculateTotalPrice(MyIterator iterator) {
         double total = 0;
 
-        for (int i = 0; i < basket.size(); i++) {
-            total += basket.get(i).getPrice();
+        while (iterator.hasNext()) {
+            total += iterator.next().getPrice();
         }
 
         return total;
