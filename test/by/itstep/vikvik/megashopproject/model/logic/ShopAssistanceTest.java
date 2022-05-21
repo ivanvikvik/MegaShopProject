@@ -31,7 +31,7 @@ public class ShopAssistanceTest {
 
         double expected = 16;
 
-        double actual = ShopAssistance.calculateTotalPrice(iterator);
+        double actual = ShopAssistance.calculateTotalPrice(basket);
 
         assertEquals(expected, actual, 0.0);
 

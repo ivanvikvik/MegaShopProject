@@ -1,8 +1,11 @@
 package by.itstep.vikvik.megashopproject.model.entity.container;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.Iterable;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.ListBasketIterator;
+import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.MyIterator;
 
-public class ListBasket implements Basket {
+public class ListBasket implements Basket, Iterable {
     private Node first;
     private int size;
 
@@ -101,6 +104,11 @@ public class ListBasket implements Basket {
             builder.append("\n").append(temp.product);
         }
         return builder.toString();
+    }
+
+    @Override
+    public MyIterator getIterator() {
+        return new ListBasketIterator(this);
     }
 
     private class Node {
