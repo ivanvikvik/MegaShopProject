@@ -2,6 +2,8 @@ package by.itstep.vikvik.megashopproject.model.entity;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 
+import java.util.Objects;
+
 public class Milk extends Product {
     private double volume;
     private double fat;
@@ -29,6 +31,20 @@ public class Milk extends Product {
 
     public void setFat(double fat) {
         this.fat = fat;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Milk)) return false;
+        if (!super.equals(o)) return false;
+        Milk milk = (Milk) o;
+        return Double.compare(milk.volume, volume) == 0 && Double.compare(milk.fat, fat) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), volume, fat);
     }
 
     @Override
