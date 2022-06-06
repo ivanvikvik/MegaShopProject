@@ -9,84 +9,31 @@ import by.itstep.vikvik.megashopproject.model.entity.comparators.SortByValueDesc
 import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
 import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.ArrayIterator;
 import by.itstep.vikvik.megashopproject.model.entity.iteratorpattern.MyIterator;
+import by.itstep.vikvik.megashopproject.util.charstream.ProductStream;
 
 import java.util.*;
 
 public class Main extends Object {
 
     public static void main(String[] args) {
-        //Queue<Integer> queue = new LinkedList<>(); //new LinkedList<>();
 
-        // Queue<Integer> queue = new PriorityQueue<>(new SortByValueDesc()); //new LinkedList<>();
-//
-//        Stack<Integer> stack = new Stack<>();
-//        stack.push(1);
-//        stack.push(2);
-//        stack.push(3);
-//        stack.push(4);
-//        stack.push(5);
-//
-//        while(!stack.isEmpty()){
-//            System.out.println(stack.pop());
-//        }
 
+//        Orange orange1 = new Orange(200, 2500, 3.5);
+//        Orange orange2 = new Orange(100, 2000, 2.6);
+//        Orange orange3 = new Orange(300, 4000, 4.7);
 //
-        Queue<Integer> queue = new ArrayDeque<>();
-        Deque<Integer> deque = (Deque<Integer>) queue;
-        deque.offer(22);
-        deque.offer(13);
-        deque.offer(4);
-        deque.offer(5);
-        deque.offer(6);
+        String fileName = "D:/Test/products.txt";
+//        Orange[] oranges = {orange1, orange2, orange3};
+//
+//
+//        ProductStream.writeOranges(oranges, fileName);
 
-        while(!queue.isEmpty()){
-            System.out.println(deque.removeFirst());
+        List<Orange> list = ProductStream.readOranges(fileName);
+
+        for (Orange orange : list) {
+            System.out.println(orange);
         }
 
-//        qwertytrewq
-//
-
-
-//        Set<Integer> set = new HashSet<>();
-        //Set<Integer> set = new LinkedHashSet<>();
-//        Set<Integer> set = new TreeSet<>();
-//
-//        Integer[] arr = {1, 12, 4, 7, 23, 4, 5, 46, 7, 8};
-//        Collections.addAll(set, arr);
-//
-//        System.out.println(set);
-
-
-//        Test t = new Test();
-//        t.<Integer>sum(3,2);
-//
-//        ArrayList<Integer> list = new ArrayList<>(); // since JDK 7.0
-//
-//        list = new LinkedList<>();
-//        list = new Vector<>();
-//
-//        //1)
-//        list.add(1);
-//        list.add(2);
-//        list.add(3);
-//        list.add(4);
-//        list.add(5);
-//        list.add(6);
-//
-//        //2)
-//        Integer[] array = {1, 2, 3, 4, 5, 6, 7, 8};
-//        //List<Integer> temp = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8);
-//        List<Integer> temp = Arrays.asList(array);
-//        list.addAll(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
-//
-//        //3
-//        Integer[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
-//        Collections.addAll(list, arr);
-
-
-//        Orange orange1 = new Orange(100, 2000, 2.5);
-//        Orange orange2 = new Orange(100, 2000, 2.6);
-//        Orange orange3 = new Orange(100, 2000, 2.7);
 //        Orang
 //        qe orange2 = new Orange(150, 2500, 3.5);
 //        Orange orange3 = new Orange(220, 3500, 6.5);
