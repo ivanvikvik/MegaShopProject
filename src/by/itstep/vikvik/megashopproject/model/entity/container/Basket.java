@@ -3,9 +3,10 @@ package by.itstep.vikvik.megashopproject.model.entity.container;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class Basket {
+public class Basket implements Iterable<Product> {
     private List<Product> products;
 
     public Basket() {
@@ -47,5 +48,10 @@ public class Basket {
             builder.append("\n").append(product);
         }
         return builder + "";
+    }
+
+    @Override
+    public Iterator<Product> iterator() {
+        return products.iterator();
     }
 }
