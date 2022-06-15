@@ -1,11 +1,6 @@
 package by.itstep.vikvik.megashopproject.model.logic;
 
-import by.itstep.vikvik.megashopproject.model.entity.Bread;
-import by.itstep.vikvik.megashopproject.model.entity.Milk;
-import by.itstep.vikvik.megashopproject.model.entity.Orange;
-import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class ShopAssistanceTest {
     @Test

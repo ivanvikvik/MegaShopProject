@@ -1,7 +1,6 @@
 package by.itstep.vikvik.megashopproject.model.logic;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
-import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
 import by.itstep.vikvik.megashopproject.model.logic.sortstrategy.ProductSortable;
 
 public class BasketSorter {

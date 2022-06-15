@@ -1,7 +1,6 @@
 package by.itstep.vikvik.megashopproject.model.entity.iteratorpattern;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
-import by.itstep.vikvik.megashopproject.model.entity.container.FixedBasket;
 
 public class FixedBasketIterator implements MyIterator {
     private FixedBasket basket;

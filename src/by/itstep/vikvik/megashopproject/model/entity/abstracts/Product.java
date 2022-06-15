@@ -1,10 +1,11 @@
 package by.itstep.vikvik.megashopproject.model.entity.abstracts;
 
+import by.itstep.vikvik.megashopproject.model.exception.ProductPriceWrongException;
+
 import java.util.Objects;
 
 public class Product implements Comparable<Product> {
     private double price;
-    private double calory;
 
     public Product() {
     }
@@ -13,13 +14,19 @@ public class Product implements Comparable<Product> {
         this.price = price;
     }
 
+    public Product(Product product) {
+        price = product.price;
+    }
+
     public double getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price) throws ProductPriceWrongException {
         if (price > 0) {
             this.price = price;
+        } else {
+            throw new ProductPriceWrongException();
         }
     }
 
@@ -44,8 +51,26 @@ public class Product implements Comparable<Product> {
 
     @Override
     public int compareTo(Product o) {
-//        return Double.compare(o.price, price);
-        return Double.compare(price, o.price);
+        return Double.compare(o.price, price);
+
+        //  private int id;
+        //  private String name;
+
+//        int number = Double.compare(o.price, price);
+//
+//        if (number == 0) {
+//            number = Integer.compare(id, o.id);
+//            if (number == 0) {
+//                number = name.compareTo(o.name);
+//                //optional
+//                if (number == 0) {
+//                    return 0;
+//                }
+//            }
+//        }
+//
+//        return number;
+
 //        if (price > o.price) {
 //            return +1;
 //        } else if (price < o.price) {

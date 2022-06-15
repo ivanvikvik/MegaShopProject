@@ -17,6 +17,12 @@ public class Bread extends Product {
         this.flour = flour;
     }
 
+    public Bread(Bread bread){
+        super(bread);
+        color = bread.color;
+        flour = bread.flour;
+    }
+
     public String getColor() {
         return color;
     }

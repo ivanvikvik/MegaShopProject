@@ -1,6 +1,7 @@
 package by.itstep.vikvik.megashopproject.util.charstream;
 
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
+import by.itstep.vikvik.megashopproject.model.exception.SomeTechnicalException;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class ProductStream {
         }
     }
 
-    public static List<Orange> readOranges(String fileName) {
+    public static List<Orange> readOranges(String fileName) throws SomeTechnicalException {
         List<Orange> list = new ArrayList<>();
         BufferedReader reader = null;
 
@@ -73,7 +74,9 @@ public class ProductStream {
 
             System.out.println("count = " + count);
         } catch (IOException exception) {
+            SomeTechnicalException someTechnicalException = new SomeTechnicalException(exception)
             System.err.println(exception);
+            throw someTechnicalException;
         } finally {
             try {
                 if (reader != null) {
