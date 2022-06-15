@@ -47,20 +47,31 @@ public class ProductStream {
 
             String buf = reader.readLine();
 
-            while (buf != null && buf != "") {
-                //for (int i = 0; i < size; i++) {
-                String[] parameters = buf.split(" "); //"3.5 2500 200".split() -> String[] "3.5" "2500" "200"
-                Orange orange = new Orange();
-                double price = Double.parseDouble(parameters[0]);
-                int vitamin = Integer.parseInt(parameters[1]);
-                int diameter = Integer.parseInt(parameters[2]);
-                orange.setPrice(price);
-                orange.setVitaminC(vitamin);
-                orange.setDiameter(diameter);
-                list.add(orange);
-                buf = reader.readLine();
+            int count = 0;
+
+
+
+            while (buf != null) {
+
+                count++;
+                //if (buf != "")
+                {
+                    //for (int i = 0; i < size; i++) {
+                    String[] parameters = buf.split(" "); //"3.5 2500 200".split() -> String[] "3.5" "2500" "200"
+                    Orange orange = new Orange();
+                    double price = Double.parseDouble(parameters[0]);
+                    int vitamin = Integer.parseInt(parameters[1]);
+                    int diameter = Integer.parseInt(parameters[2]);
+                    orange.setPrice(price);
+                    orange.setVitaminC(vitamin);
+                    orange.setDiameter(diameter);
+                    list.add(orange);
+                    buf = reader.readLine();
+                }
+
             }
 
+            System.out.println("count = " + count);
         } catch (IOException exception) {
             System.err.println(exception);
         } finally {

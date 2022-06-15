@@ -22,7 +22,7 @@ public class Main extends Object {
 //        Orange orange2 = new Orange(100, 2000, 2.6);
 //        Orange orange3 = new Orange(300, 4000, 4.7);
 //
-        String fileName = "D:/Test/products.txt";
+        String fileName = "D:/Test/products.xls";
 //        Orange[] oranges = {orange1, orange2, orange3};
 //
 //
