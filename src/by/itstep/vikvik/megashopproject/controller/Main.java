@@ -3,13 +3,7 @@ package by.itstep.vikvik.megashopproject.controller;
 import by.itstep.vikvik.megashopproject.model.entity.Bread;
 import by.itstep.vikvik.megashopproject.model.entity.Milk;
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
-import by.itstep.vikvik.megashopproject.model.entity.container.DynamicBasket;
-import by.itstep.vikvik.megashopproject.model.entity.container.FixedBasket;
-import by.itstep.vikvik.megashopproject.model.entity.container.ListBasket;
-import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.DynamicBasketIterator;
-import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.FixedBasketIterator;
-import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.ListBasketIterator;
-import by.itstep.vikvik.megashopproject.model.entity.iteratorpatern.MyIterator;
+import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
 import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
 
 public class Main {
@@ -24,23 +18,23 @@ public class Main {
         Milk milk4 = new Milk(1500, 1.0, 3.5);
         Bread bread = new Bread("White", "Best", 2.5);
 
-        FixedBasket basket = new FixedBasket();
+        Basket basket = new Basket();
         basket.add(bread);
         basket.add(milk1);
         basket.add(orange1);
         basket.add(milk3);
 
-        DynamicBasket dynamicBasket = new DynamicBasket();
-        dynamicBasket.add(bread);
-        dynamicBasket.add(milk1);
-        dynamicBasket.add(orange1);
-        dynamicBasket.add(milk3);
-
-        ListBasket listBasket = new ListBasket();
-        listBasket.add(bread);
-        listBasket.add(milk1);
-        listBasket.add(orange1);
-        listBasket.add(milk3);
+//        DynamicBasket dynamicBasket = new DynamicBasket();
+//        dynamicBasket.add(bread);
+//        dynamicBasket.add(milk1);
+//        dynamicBasket.add(orange1);
+//        dynamicBasket.add(milk3);
+//
+//        ListBasket listBasket = new ListBasket();
+//        listBasket.add(bread);
+//        listBasket.add(milk1);
+//        listBasket.add(orange1);
+//        listBasket.add(milk3);
 
 //        BasketSorter.sort(basket, new SortByPriceAsc());
 //        System.out.println(basket);
@@ -53,8 +47,8 @@ public class Main {
 //        double total = ShopAssistance.calculateTotalPrice(basket);
 //        System.out.println("Total price: " + total);
 
-        System.out.println(dynamicBasket);
-        double total = ShopAssistance.calculateTotalPrice(dynamicBasket);
+        System.out.println(basket);
+        double total = ShopAssistance.calculateTotalPrice(basket);
         System.out.println("Total price: " + total);
 //
 //        System.out.println(listBasket);
