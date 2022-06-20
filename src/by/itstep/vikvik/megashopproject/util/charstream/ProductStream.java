@@ -37,7 +37,7 @@ public class ProductStream {
         }
     }
 
-    public static List<Orange> readOranges(String fileName) throws SomeTechnicalException {
+    public static List<Orange> readOranges(String fileName) {
         List<Orange> list = new ArrayList<>();
         BufferedReader reader = null;
 
@@ -51,7 +51,6 @@ public class ProductStream {
             int count = 0;
 
 
-
             while (buf != null) {
 
                 count++;
@@ -59,13 +58,10 @@ public class ProductStream {
                 {
                     //for (int i = 0; i < size; i++) {
                     String[] parameters = buf.split(" "); //"3.5 2500 200".split() -> String[] "3.5" "2500" "200"
-                    Orange orange = new Orange();
                     double price = Double.parseDouble(parameters[0]);
                     int vitamin = Integer.parseInt(parameters[1]);
                     int diameter = Integer.parseInt(parameters[2]);
-                    orange.setPrice(price);
-                    orange.setVitaminC(vitamin);
-                    orange.setDiameter(diameter);
+                    Orange orange = new Orange(diameter, vitamin, price);
                     list.add(orange);
                     buf = reader.readLine();
                 }
@@ -74,9 +70,7 @@ public class ProductStream {
 
             System.out.println("count = " + count);
         } catch (IOException exception) {
-            SomeTechnicalException someTechnicalException = new SomeTechnicalException(exception)
             System.err.println(exception);
-            throw someTechnicalException;
         } finally {
             try {
                 if (reader != null) {

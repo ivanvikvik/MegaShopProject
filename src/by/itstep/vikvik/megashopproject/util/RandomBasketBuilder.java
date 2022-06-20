@@ -1,6 +1,7 @@
 package by.itstep.vikvik.megashopproject.util;
 
 import by.itstep.vikvik.megashopproject.model.entity.Orange;
+import by.itstep.vikvik.megashopproject.model.entity.ProductType;
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
 
@@ -17,10 +18,6 @@ public class RandomBasketBuilder {
 
     public static final int MAX_ORANGE_VITAMIN_C = 5000;
     public static final int MIN_ORANGE_VITAMIN_C = 100;
-
-    public enum ProductType {
-        ORANGE, MILK, BREAD
-    }
 
     public static Basket createBasket(){
         Basket basket = new Basket();

@@ -18,10 +18,10 @@ public class HardcodeBasketBuilder {
         Bread bread = new Bread("White", "Best", 3.5);
 
         Basket basket = new Basket(new LinkedList<>());
+        basket.add(milk1);
         basket.add(orange3);
         basket.add(orange4);
         basket.add(bread);
-        basket.add(milk1);
         basket.add(milk2);
         basket.add(milk3);
         basket.add(milk4);
