@@ -1,16 +1,35 @@
 package by.itstep.vikvik.megashopproject.model.entity;
 
 import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
+import by.itstep.vikvik.megashopproject.model.exception.ProductPriceWrongException;
 
+import java.io.IOException;
 import java.util.Objects;
 
 public class Orange extends Product {
     private int diameter;
     private int vitaminC;
-    String name;
+
+    private static final long serialVersionUID = 1L;
+
+    private void writeObject(java.io.ObjectOutputStream out)
+            throws IOException {
+        out.defaultWriteObject();
+        out.writeDouble(getPrice());
+    }
+
+    private void readObject(java.io.ObjectInputStream in)
+            throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        try {
+            setPrice(in.readDouble());
+        } catch (ProductPriceWrongException exception) {
+            System.err.println(exception);
+        }
+    }
 
     public Orange() {
-
+//        super(0);
     }
 
     public Orange(int diameter, int vitaminC, double price) {

@@ -9,6 +9,7 @@ public class Milk extends Product {
     private double fat;
 
     public Milk() {
+//        super(0);
     }
 
     public Milk(double volume, double fat, double price) {

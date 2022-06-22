@@ -2,10 +2,12 @@ package by.itstep.vikvik.megashopproject.model.entity.abstracts;
 
 import by.itstep.vikvik.megashopproject.model.exception.ProductPriceWrongException;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Product implements Comparable<Product> {
-    private double price;
+public class Product implements Comparable<Product>, Serializable {
+    private static final long serialVersionUID = 1L;
+    private transient double price;
 
     public Product() {
     }
