@@ -85,14 +85,13 @@ public class CharStreamBuilder {
                         product = new Orange(diameter, vitaminC, price);
                     }
                 }
-
+                basket.add(product);
             }
 
 
         } catch (IOException e) {
             System.err.println(e);
         }
-
 
         return basket;
     }

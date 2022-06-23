@@ -1,11 +1,7 @@
 package by.itstep.vikvik.megashopproject.controller;
 
-import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
-import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
-import by.itstep.vikvik.megashopproject.util.ByteStreamBuilder;
-import by.itstep.vikvik.megashopproject.util.CharStreamBuilder;
-import by.itstep.vikvik.megashopproject.util.HardcodeBasketBuilder;
 import by.itstep.vikvik.megashopproject.util.exceptions.BasketFileNotFoundException;
+import by.itstep.vikvik.megashopproject.util.serilezation.ProductSerializator;
 
 import java.io.EOFException;
 
@@ -14,11 +10,12 @@ public class Main {
 
         String fileName = "product.txt";
 
-        CharStreamBuilder builder = new CharStreamBuilder(fileName);
+//        CharStreamBuilder builder = new CharStreamBuilder(fileName);
+//
+//        Basket basket = builder.createBasket();
 
-        Basket basket = builder.createBasket();
-
-        System.out.println(basket);
+        
+        System.out.println("read = " + ProductSerializator.read());
 
 
 

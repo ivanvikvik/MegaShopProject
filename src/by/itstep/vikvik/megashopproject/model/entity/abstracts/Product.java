@@ -1,8 +1,10 @@
 package by.itstep.vikvik.megashopproject.model.entity.abstracts;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Comparable<Product>, Serializable {
     private double price;
-    private double calory;
+    private double calories;
 
     public Product() {
     }
@@ -24,5 +26,11 @@ public class Product {
     @Override
     public String toString() {
         return "price = " + price;
+    }
+
+    @Override
+    public int compareTo(Product o) {
+//        Дописать метод !!!!!!
+        return 0;
     }
 }
