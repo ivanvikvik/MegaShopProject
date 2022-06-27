@@ -9,16 +9,16 @@ public class BasketSerializator {
     private static String fileName;
 
     static {
-        fileName = "D:/Test/product.dat";
+        fileName = "D:/Test/basket.dat";
     }
 
     public static void write(Basket basket) {
-        try(ObjectOutputStream stream = new ObjectOutputStream(
+        try (ObjectOutputStream stream = new ObjectOutputStream(
                 new BufferedOutputStream(new FileOutputStream(fileName)))) {
 
             stream.writeObject(basket);
 
-        }catch (IOException exception) {
+        } catch (IOException exception) {
             System.err.println(exception);
         }
 
@@ -27,12 +27,12 @@ public class BasketSerializator {
     public static Basket read() {
         Basket basket = null;
 
-        try(ObjectInputStream stream = new ObjectInputStream(
+        try (ObjectInputStream stream = new ObjectInputStream(
                 new BufferedInputStream(new FileInputStream(fileName)))) {
 
-            basket = (Basket)stream.readObject();
+            basket = (Basket) stream.readObject();
 
-        }catch (IOException | ClassNotFoundException exception) {
+        } catch (IOException | ClassNotFoundException exception) {
             System.err.println(exception);
         }
 

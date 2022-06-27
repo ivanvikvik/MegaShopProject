@@ -8,9 +8,9 @@ public class Bread extends Product {
     private String color;
     private String flour;
 
-    public Bread() {
-//        super(0);
-    }
+//    public Bread() {
+////        super(0);
+//    }
 
     public Bread(String color, String flour, double price) {
         super(price); // this();

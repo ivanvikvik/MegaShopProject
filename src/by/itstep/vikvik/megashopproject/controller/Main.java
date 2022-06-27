@@ -1,11 +1,6 @@
 package by.itstep.vikvik.megashopproject.controller;
 
-import by.itstep.vikvik.megashopproject.model.entity.Orange;
-import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 import by.itstep.vikvik.megashopproject.model.entity.container.Basket;
-import by.itstep.vikvik.megashopproject.model.logic.ShopAssistance;
-import by.itstep.vikvik.megashopproject.util.ByteStreamBuilder;
-import by.itstep.vikvik.megashopproject.util.CharStreamBuilder;
 import by.itstep.vikvik.megashopproject.util.HardcodeBasketBuilder;
 import by.itstep.vikvik.megashopproject.util.exceptions.BasketFileNotFoundException;
 import by.itstep.vikvik.megashopproject.util.serialization.BasketSerializator;
@@ -13,8 +8,13 @@ import by.itstep.vikvik.megashopproject.util.serialization.BasketSerializator;
 public class Main extends Object {
 
     public static void main(String[] args) throws BasketFileNotFoundException {
-        //Product product = new Orange(100, 3000, 2.5);
+//        Product product = new Orange(100, 3000, 2.5);
+//
+//        BasketSerializator.write(product);
 
+//        Product newProduct = BasketSerializator.read();
+//
+//        System.out.println(newProduct);
 
 
         Basket basket = HardcodeBasketBuilder.createBasket();

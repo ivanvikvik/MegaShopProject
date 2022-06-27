@@ -2,15 +2,16 @@ package by.itstep.vikvik.megashopproject.model.entity.abstracts;
 
 import by.itstep.vikvik.megashopproject.model.exception.ProductPriceWrongException;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.Objects;
 
-public class Product implements Comparable<Product>, Serializable {
+public class Product implements Comparable<Product>, Externalizable {
     private static final long serialVersionUID = 1L;
-    private transient double price;
 
-    public Product() {
-    }
+    private double price;
+
+//    public Product() {
+//    }
 
     public Product(double price) {
         this.price = price;
@@ -80,5 +81,15 @@ public class Product implements Comparable<Product>, Serializable {
 //        } else {
 //            return 0;
 //        }
+    }
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeDouble(price);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        price = in.readDouble();
     }
 }

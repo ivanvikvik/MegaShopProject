@@ -4,6 +4,8 @@ import by.itstep.vikvik.megashopproject.model.entity.abstracts.Product;
 import by.itstep.vikvik.megashopproject.model.exception.ProductPriceWrongException;
 
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
 import java.util.Objects;
 
 public class Orange extends Product {
@@ -12,25 +14,25 @@ public class Orange extends Product {
 
     private static final long serialVersionUID = 1L;
 
-    private void writeObject(java.io.ObjectOutputStream out)
-            throws IOException {
-        out.defaultWriteObject();
-        out.writeDouble(getPrice());
-    }
+//    private void writeObject(java.io.ObjectOutputStream out)
+//            throws IOException {
+//        out.defaultWriteObject();
+//        out.writeDouble(getPrice());
+//    }
+//
+//    private void readObject(java.io.ObjectInputStream in)
+//            throws IOException, ClassNotFoundException {
+//        in.defaultReadObject();
+//        try {
+//            setPrice(in.readDouble());
+//        } catch (ProductPriceWrongException exception) {
+//            System.err.println(exception);
+//        }
+//    }
 
-    private void readObject(java.io.ObjectInputStream in)
-            throws IOException, ClassNotFoundException {
-        in.defaultReadObject();
-        try {
-            setPrice(in.readDouble());
-        } catch (ProductPriceWrongException exception) {
-            System.err.println(exception);
-        }
-    }
-
-    public Orange() {
+//    public Orange() {
 //        super(0);
-    }
+//    }
 
     public Orange(int diameter, int vitaminC, double price) {
         super(price);
@@ -82,4 +84,19 @@ public class Orange extends Product {
 //        Orange orange = (Orange) o;
 //        return name.compareTo(orange.name);
 //    }
+
+
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeInt(diameter);
+        out.writeInt(vitaminC);
+        super.writeExternal(out);
+    }
+
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        diameter = in.readInt();
+        vitaminC = in.readInt();
+        super.readExternal(in);
+    }
 }
